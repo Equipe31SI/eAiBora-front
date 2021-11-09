@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BannerSocial from "../assets/social_img/social4.jpg";
+import SocialFollow from "../components/SocialFollow";
 import "../styles/Social.css";
 
 function Social4() {
@@ -12,6 +13,7 @@ function Social4() {
         <p style={{fontSize: 20}}> Local: Cais do Imperador</p>
         <p style={{fontSize: 15}}> Entrada: gratuita</p>
         <p style={{fontSize: 15}}> Especialistas no assunto, executam um repertório de standards enfatizando a obra de John Coltrane, Thelonious Monk, Miles Davis, Charlie Parker e Tom Jobim, ao mesmo tempo em que o público pode contemplar a bela vista do Capibaribe nos fins de tarde dos sábados e das quintas-feiras, sempre às 18h.</p>
+        <SocialFollow />
         <Link to="/menu">
         </Link>
       </div>

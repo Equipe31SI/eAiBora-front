@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BannerSocial from "../assets/social_img/social1.jpg";
+import SocialFollow from "../components/SocialFollow";
 import "../styles/Social.css";
 
 function Social() {
@@ -12,6 +13,7 @@ function Social() {
         <p style={{fontSize: 20, color: "white"}}> Local: Centro de Convenções </p>
         <p style={{fontSize: 15, color: "white"}}> Entrada: R$160 + R$ 35 (camping)</p>
         <p style={{fontSize: 15, color: "white"}}> 300 horas de conteúdo sobre tecnologia, inovação, criatividade, ciência, empreendedorismo e entretenimento digital. Tudo concentrado nos seis palcos, no Centro de Convenções de Pernambuco.</p>
+        <SocialFollow />
         <Link to="/menu">
         </Link>
       </div>

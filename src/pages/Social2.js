@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BannerSocial from "../assets/social_img/social2.png";
+import SocialFollow from "../components/SocialFollow";
 import "../styles/Social.css";
 
 function Social2() {
@@ -12,6 +13,7 @@ function Social2() {
         <p style={{fontSize: 20}}> Local: Online </p>
         <p style={{fontSize: 15}}> Entrada: gratuita</p>
         <p style={{fontSize: 15}}> A importancia de estar atento às tendências que vieram para ficar, o que permite que as escolas se preparem para oferecer aulas de forma hibrida e eficiente para os seus estudantes. Mais informações em sympla.com.br.</p>
+        <SocialFollow />
         <Link to="/menu">
         </Link>
       </div>

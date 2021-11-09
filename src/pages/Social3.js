@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BannerSocial from "../assets/social_img/social3.jpg";
+import SocialFollow from "../components/SocialFollow";
 import "../styles/Social.css";
 
 function Social3() {
@@ -12,6 +13,7 @@ function Social3() {
         <p style={{fontSize: 20}}> Local: Ginásio de Esportes Geraldo Magalhães (Geraldão) </p>
         <p style={{fontSize: 15}}> Entrada: gratuita</p>
         <p style={{fontSize: 15}}> O atletismo dentro do contexto escolar pode ser considerado um conteúdo de fundamental importância, pois as capacidades e habilidades motoras por ele exploradas servem de auxilio e de base para o aprimoramento e a execução de movimentos que serão utilizados em outras modalidades esportivas. Nesse evento, iremos reunir uma competição envolvendo diversas escolas pré-selecionadas da cidade do Recife.</p>
+        <SocialFollow />
         <Link to="/menu">
         </Link>
       </div>
