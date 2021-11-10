@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.css';
 import { Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -7,8 +7,25 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import PersonIcon from '@material-ui/icons/Person';
+import api from '../services/api'
 
 const Login=()=> {
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+
+const loginUsuario = {
+    email:email,
+    password:password
+}
+
+async function usuario () {
+    try {
+        await api.post('login/admin', loginUsuario) 
+    } catch (error) {
+        alert('Erro, tente novamente')
+    }    
+}
+
     return (
         <div>
             <div className="icon">
@@ -20,9 +37,9 @@ const Login=()=> {
             </div>
             <p></p>
             <div className="row m-2">
-                <TextField id="email" className="p-2" type="text" variant="outlined" label="Entre com seu Email" fullWidth/>
+                <TextField value={email} onChange={e => setEmail(e.target.value)} id="email" className="p-2" type="text" variant="outlined" label="Entre com seu Email" fullWidth/>
                 <p></p>
-                <TextField id="password" className="p-2" type="text" variant="outlined" label="Entre com sua senha" fullWidth/>
+                <TextField value={password} onChange={e => setPassword(e.target.value)} id="password" className="p-2" type="text" variant="outlined" label="Entre com sua senha" fullWidth/>
                 <p></p>
             <FormControlLabel
                 control={
@@ -35,7 +52,7 @@ const Login=()=> {
                 label="Lembrar"
             />
 
-            <Button variant="contained" color="primary" fullWidth>Entrar</Button>
+            <Button onClick={usuario} variant="contained" color="primary" fullWidth>Entrar</Button>
             <p></p>
             <Link to="/sign" style={{ textDecoration: 'none' }}>
             <Button variant="contained" color="" fullWidth>Criar uma conta</Button>

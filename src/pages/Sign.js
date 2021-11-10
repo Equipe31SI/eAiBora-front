@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Login.css';
 import { Divider, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
@@ -7,8 +7,27 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import api from '../services/api'
 
 const Sign=()=> {
+const [name, setName] = useState('')
+const [email, setEmail] = useState('')
+const [password, setPassword] = useState('')
+
+const novoUsuario = {
+        name:name,
+        email:email,
+        password:password
+    }
+    
+    async function cadastrarUsuario () {
+        try {
+            await api.post('admin/register', novoUsuario) //info na api (estrutura)
+        } catch (error) {
+            alert('Erro, tente novamente')
+        }    
+    }
+
     return (
         <div>
             <div className="icon">
@@ -20,11 +39,11 @@ const Sign=()=> {
             </div>
             <p></p>
             <div className="row m-2">
-                <TextField id="completeName" className="p-2" type="text" variant="outlined" label="Entre com seu nome completo" fullWidth/>
+                <TextField value={name} onChange={e => setName(e.target.value)} id="completeName" className="p-2" type="text" variant="outlined" label="Entre com seu nome completo" fullWidth/>
                 <p></p>
-                <TextField id="email" className="p-2" type="text" variant="outlined" label="Entre com seu Email" fullWidth/>
+                <TextField value={email} onChange={e => setEmail(e.target.value)} id="email" className="p-2" type="text" variant="outlined" label="Entre com seu Email" fullWidth/>
                 <p></p>
-                <TextField id="password" className="p-2" type="text" variant="outlined" label="Entre com sua senha" fullWidth/>
+                <TextField value={password} onChange={e => setPassword(e.target.value)} id="password" className="p-2" type="text" variant="outlined" label="Entre com sua senha" fullWidth/>
                 <p></p>
             <FormControlLabel
                 control={
@@ -41,7 +60,9 @@ const Sign=()=> {
                 }
             />
 
-            <Button variant="contained" color="primary" fullWidth>Cadastrar</Button>
+            <Button onClick={cadastrarUsuario} variant="contained" color="primary" fullWidth>Cadastrar</Button>
+            {/* No clique do botão adicionar o evento que envia o cadastro */}
+
             </div>
             <Divider variant="middle"/>
             <p className="text-center">
