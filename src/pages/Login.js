@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
 import { Button, TextField } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -18,9 +18,15 @@ const loginUsuario = {
     password:password
 }
 
+let history = useHistory();
+
 async function usuario () {
     try {
-        await api.post('login/admin', loginUsuario) 
+        await api.post('login/admin', loginUsuario).then(response => {
+            window.sessionStorage.token=response.data.token
+        })
+        window.location.href="/menu"
+        /*history.push("/menu")*/
     } catch (error) {
         alert('Erro, tente novamente')
     }    

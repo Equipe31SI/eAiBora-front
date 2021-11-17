@@ -10,6 +10,20 @@ function Navbar() {
   const toggleNavbar = () => {
     setOpenLinks(!openLinks);
   };
+
+  let loginLogout
+
+  if (!window.sessionStorage.token) {
+    loginLogout = <Link to="/login"> Login </Link>
+  }else {
+    loginLogout = <Link onClick={logout}> Logout </Link>
+  }
+
+  async function logout (){
+    window.sessionStorage.removeItem("token")
+    window.location.reload()
+  }
+
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
@@ -19,7 +33,7 @@ function Navbar() {
           <Link to="/menu"> Eventos </Link>
           <Link to="/about"> Sobre </Link>
           <Link to="/contact"> Contato </Link>
-          <Link to="/login"> Login </Link>
+          {loginLogout}
         </div>
       </div>
       <div className="rightSide">
@@ -27,7 +41,7 @@ function Navbar() {
         <Link to="/menu"> Eventos </Link>
         <Link to="/about"> Sobre </Link>
         <Link to="/contact"> Contato </Link>
-        <Link to="/login"> Login </Link>
+        {loginLogout}
         <button onClick={toggleNavbar}>
           <ReorderIcon />
         </button>
