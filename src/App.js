@@ -14,6 +14,7 @@ import Social4 from "./pages/Social4";
 import Social5 from "./pages/Social5";
 import Social6 from "./pages/Social6";
 import Loading from "./pages/Loading";
+import Form_a from "./pages/Form_a";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Container } from "@material-ui/core";
 
@@ -39,6 +40,7 @@ function App() {
             <Container maxWidth="md">
               <Route path="/login" exact component={Login} />
               <Route path="/sign" exact component={Sign} />
+              <Route path="/form_a" exact component={Form_a} />
             </Container>
           </div>
         </Switch>
