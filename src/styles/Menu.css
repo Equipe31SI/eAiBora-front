@@ -60,3 +60,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+.editIcon, .delIcon {
+  color: Yellow;
+  border-radius: 25%;
+  border-radius: 25%;
+  padding-top: 5%;
+  border-color: #FFFFFF;
+}
+
+.editIcon {
+  padding-left: 5%;
+}
+
+.delIcon {
+  padding-left: 73%;
+}
+
+.addEventIcon {
+  color: black;
+}
