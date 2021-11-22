@@ -17,7 +17,7 @@ const loginUsuario = {
     email:email,
     password:password
 }
-
+// eslint-disable-next-line
 let history = useHistory();
 
 async function usuario () {
@@ -26,7 +26,7 @@ async function usuario () {
             window.sessionStorage.token=response.data.token
         })
         window.location.href="/menu"
-        /*history.push("/menu")*/
+        
     } catch (error) {
         alert('Erro, tente novamente')
     }    
