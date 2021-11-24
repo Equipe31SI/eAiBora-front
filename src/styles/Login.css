@@ -23,3 +23,15 @@
 .icon_class>.MuiSvgIcon-root {
     color: #02706B;
 }
+
+.btnEye {
+    height: 3em;
+    padding: 0.5em;
+    font-size: 1.165rem;
+    border-width: thin;
+    border-color: thistle;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 0.2rem;
+    
+}

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import '../styles/Login.css';
 import { Divider, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-/*import EventIcon from '@material-ui/icons/Event';*/
 import api from '../services/api'
 
 const Form=()=> {
@@ -33,10 +32,6 @@ const novoEvento = {
     return (
         <div>
             <div className="icon">
-                {/*<div className="icon_class"></div>
-                <div className="icon_class">
-                    <EventIcon fontSize="large"/>
-                </div>*/}
                 <div className="text">Criar Evento</div>
             </div>
             <p></p>

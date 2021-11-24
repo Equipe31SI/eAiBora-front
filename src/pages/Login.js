@@ -7,11 +7,16 @@ import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import PersonIcon from '@material-ui/icons/Person';
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import api from '../services/api'
 
 const Login=()=> {
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
+const [state, setstate] = useState(false)
+const toggleBtn = () => {
+    setstate(prevState => !prevState);
+}
 
 const loginUsuario = {
     email:email,
@@ -45,8 +50,12 @@ async function usuario () {
             <div className="row m-2">
                 <TextField value={email} onChange={e => setEmail(e.target.value)} id="email" className="p-2" type="text" variant="outlined" label="Entre com seu Email" fullWidth/>
                 <p></p>
-                <TextField value={password} onChange={e => setPassword(e.target.value)} id="password" className="p-2" type="text" variant="outlined" label="Entre com sua senha" fullWidth/>
+                <TextField value={password} onChange={e => setPassword(e.target.value)} id="password" className="p-2" type={state ? "text" : "password"} variant="outlined" label="Entre com sua senha" /><button className="btnEye" onClick={toggleBtn}>
+                    { state? <AiOutlineEyeInvisible /> : 
+                        <AiOutlineEye />
+                    }</button>
                 <p></p>
+
             <FormControlLabel
                 control={
                     <Checkbox
