@@ -19,9 +19,10 @@ function Navbar() {
     loginLogout = <Link onClick={logout}> Logout </Link>
   }
 
-  async function logout (){
+  async function logout () {
     window.sessionStorage.removeItem("token")
     window.location.reload()
+    window.location.href="/login"
   }
 
   return (

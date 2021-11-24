@@ -22,7 +22,8 @@ const novoUsuario = {
     
     async function cadastrarUsuario () {
         try {
-            await api.post('admin/register', novoUsuario) //info na api (estrutura)
+            await api.post('admin/register', novoUsuario)
+            window.location.href="/login"
         } catch (error) {
             alert('Erro, tente novamente')
         }    
