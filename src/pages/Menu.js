@@ -7,7 +7,11 @@ import { FaPlusCircle } from "react-icons/fa";
 function Menu() {
   return (
     <div className="menu">
-      <h1 className="menuTitle">Eventos <a href="/form_a"><FaPlusCircle class="addEventIcon" size={45}/></a></h1>
+      <h1 className="menuTitle">Eventos <a href="/form_a">
+      {
+        (window.sessionStorage.token) && ( <FaPlusCircle class="addEventIcon" size={45}/> )
+      }
+      </a></h1>
       <div className="menuList">
         {MenuList.map((menuItem, key) => {
           return (

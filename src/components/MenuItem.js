@@ -6,7 +6,11 @@ function MenuItem({ image, name, price, link }) {
   return (
     <Link to={link}>
     <div className="menuItem">
-      <div style={{ backgroundImage: `url(${image})` }}> <FaPen class="editIcon" size={25} /> <FaTrash class="delIcon" size={25} /> </div>
+      <div style={{ backgroundImage: `url(${image})` }}> 
+      {
+        (window.sessionStorage.token) && ( <fragment> <FaPen class="editIcon" size={25} /> <FaTrash class="delIcon" size={25} /></fragment> ) 
+      }
+      </div>
       <h1> {name} </h1>
       <p> ${price} </p>
     </div>
